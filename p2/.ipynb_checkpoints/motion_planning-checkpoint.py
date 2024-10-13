@@ -121,7 +121,7 @@ class MotionPlanning(Drone):
         self.target_position[2] = TARGET_ALTITUDE
 
         # Read lat0, lon0 from colliders into floating point values
-        relative_file_path = 'colliders.csv'
+        relative_file_path = './colliders.csv'
 
         # The first line of the.csv file contains the necessary data.
         the_first_colliders_data = np.genfromtxt(relative_file_path, delimiter=',', max_rows=1, dtype=None)
@@ -151,7 +151,7 @@ class MotionPlanning(Drone):
             self.local_position)
         )
         # Read in obstacle map
-        data = np.loadtxt('colliders.csv', delimiter=',', dtype='float64', skiprows=2)
+        data = np.loadtxt('./colliders.csv', delimiter=',', dtype='float64', skiprows=2)
         
         # Define a grid for a particular altitude and safety margin around obstacles
         grid, north_offset, east_offset = create_grid(data, TARGET_ALTITUDE, SAFETY_DISTANCE)
@@ -169,9 +169,11 @@ class MotionPlanning(Drone):
         grid_goal = (-north_offset + 10, -east_offset + 10)
 
         # Adapt to set goal as latitude / longitude position and convert
-        lon_goal = -122.400511  # It can be changed to another lon goal, ex: -122.401300
-        lat_goal = 37.792582  # It can be changed to another lat goal, ex: 37.796750
-        alt_goal = TARGET_ALTITUDE # Default alt, it is 5
+        # lon_goal = -122.400511  # TODO: To be changed -122.401300
+        # lat_goal = 37.792582  # TODO: To be changed 37.796750
+        lon_goal = -122.401300  # TODO: To be changed -122.401300
+        lat_goal = 37.796750  # TODO: To be changed 37.796750
+        alt_goal = TARGET_ALTITUDE
         global_goal = [
             lon_goal,
             lat_goal, 
