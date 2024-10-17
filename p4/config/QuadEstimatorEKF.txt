@@ -4,18 +4,18 @@ InitStdDevs = .1, .1, .3, .1, .1, .3, .05
 
 # Process noise model
 # note that the process covariance matrix is diag(pow(QStd,2))*dtIMU
-
-QPosXYStd = .05
-QPosZStd = .05
-QVelXYStd = .05
-QVelZStd = .1
-QYawStd = .05
+// process noise tuning
+QPosXYStd = .051 /old value .05
+QPosZStd = .051 /old value .05
+QVelXYStd = .15 /old value .05
+QVelZStd = .91 /old value .1
+QYawStd = .91 /old value .05 - update the magneto meter
 
 # GPS measurement std deviations
 GPSPosXYStd = 1
-GPSPosZStd = 3
+GPSPosZStd = 90 /old value 3 - to minimize the error 
 GPSVelXYStd = .1
-GPSVelZStd = .3
+GPSVelZStd = .51 /old value .3
 
 # Magnetometer
 MagYawStd = .1
